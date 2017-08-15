@@ -8,6 +8,9 @@ body {
     text-align: center;
 }
 
+.fcolor {
+    color:blue;  
+}
 .text-big {
     font-size: 300%;
 }
