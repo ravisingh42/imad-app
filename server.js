@@ -20,11 +20,9 @@ var articles = {
                         This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
                      </p>
                      <p>
-                     This the content for my first article. In which i hv study aboud html and css
-                        and doing the assignment related to this.This the content for my first article.
-                        
-                        In which i hv study aboud html and css and doing the assignment related to this.
-                        This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
+                        This is about learning about webapp development and how to ceate a webapp
+                        And its intresting, i have created a web app same like how hasura created and learnslot of about webapp
+                        i will continue this module and its quite intresting for me.
                      </p> `
     },
     'article-two': {
