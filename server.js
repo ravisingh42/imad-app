@@ -5,25 +5,56 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article one | Ravi singh',
-    heading: 'Article one',
-    date: 'sep 5,2016',
-    content:
-             `   <p>
-                    This the content for my first article. In which i hv study aboud html and css
-                    and doing the assignment related to this.This the content for my first article. 
-                    
-                    In which i hv study aboud html and css and doing the assignment related to this.
-                    This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
-                 </p>
-                 <p>
-                 This the content for my first article. In which i hv study aboud html and css
-                    and doing the assignment related to this.This the content for my first article.
-                    
-                    In which i hv study aboud html and css and doing the assignment related to this.
-                    This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
-                 </p> `
+var articles = {
+    
+    'article-one': {
+        title: 'Article one | Ravi singh',
+        heading: 'Article one',
+        date: 'sep 5,2017',
+        content:
+                 `   <p>
+                        This the content for my first article. In which i hv study aboud html and css
+                        and doing the assignment related to this.This the content for my first article. 
+                        
+                        In which i hv study aboud html and css and doing the assignment related to this.
+                        This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
+                     </p>
+                     <p>
+                     This the content for my first article. In which i hv study aboud html and css
+                        and doing the assignment related to this.This the content for my first article.
+                        
+                        In which i hv study aboud html and css and doing the assignment related to this.
+                        This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
+                     </p> `
+    },
+    'article-two': {
+         title: 'Article two | Ravi singh',
+        heading: 'Article one',
+        date: 'sep 7,2017',
+        content:
+                 `   <p>
+                        This the content for my first article. In which i hv study aboud html and css
+                        and doing the assignment related to this.This the content for my first article. 
+                        
+                        In which i hv study aboud html and css and doing the assignment related to this.
+                        This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
+                     </p>
+                      `
+    },
+    'article-three': {
+         title: 'Article three | Ravi singh',
+        heading: 'Article three',
+        date: 'sep 15,2016',
+        content:
+                 `   <p>
+                        This the content for my third article. In which i hv study aboud html and css
+                        and doing the assignment related to this.This the content for my first article. 
+                        
+                        In which i hv study aboud html and css and doing the assignment related to this.
+                        This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this nd its awesome
+                     </p>
+                      `
+    }
 };
 
 function createTemplate (data) {
@@ -69,20 +100,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(articleOne));
-    
+app.get('/:articleName',function(req,res){
+    //articleNae == article-one
+    // articles[articleName] == {} content object for article one
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
-app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'Article-two.html'));
-    
-});
-
-app.get('/article-three',function(req,res){
-     res.sendFile(path.join(__dirname, 'ui', 'Article-three.html'));
-    
-});
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
