@@ -29,15 +29,15 @@ var articles = {
     },
     'article-two': {
          title: 'Article two | Ravi singh',
-        heading: 'Article one',
+        heading: 'Article two',
         date: 'sep 7,2017',
         content:
                  `   <p>
-                        This the content for my first article. In which i hv study aboud html and css
+                        This the content for my second article. In which i hv study aboud html and css
                         and doing the assignment related to this.This the content for my first article. 
                         
                         In which i hv study aboud html and css and doing the assignment related to this.
-                        This the content for my first article. In which i hv study aboud html and css and doing the assignment related to this
+                        This the content for my second article. In which i hv study aboud html and css and doing the assignment related to this
                      </p>
                       `
     },
