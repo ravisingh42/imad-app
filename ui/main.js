@@ -18,11 +18,29 @@ img.onclick= function() {
 
 //Counter code
 var button = document.getElementById('counter');
-var counter = 0;
+
 button.onclick= function() {
-    // Make a request to the counter end point
-    // Capture the responce and end it in the variable
-    // render the variable in the correct span
+    
+    //Create a request object
+    var request = new XMLHttpRequest();
+    
+    // Capture the responce and change it into a variable
+    request.onreadystatechange = function () {
+        if (request.readyState=== XMLHttpRequest.DONE) {
+            //Take some action
+            if(requesr.status===200) {
+                var counter= request.responceText;
+                var span = document.getElementById('count');
+                span.innerHTML=counter.toString();
+            }
+        }
+        //Not done yet
+    };
+    
+    // Make the request
+    request.open('GET','http://ravisingh78927.imad.hasura-app.io/counter', true);
+    request.send(null);
+};
     
     counter = counter+1;
     var span = document.getElementById('count');
