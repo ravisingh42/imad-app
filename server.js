@@ -90,7 +90,7 @@ function createTemplate (data) {
                    
 
 </html>
-`
+`;
 return htmlTemplate;
 }
 
@@ -104,14 +104,14 @@ app.get('/counter',function (req, res){
     res.send(counter.toString());
 });
 
-var names=[];
+var names = [];
 app.get('/submit-name', function(req, res) { // /Submit-name name?name-xxxx
     //Get the name from request
     var name= req.query.name;
     
     name.push(name);
     //JSON Java script object notation
-    res.send(JSON.stringify(name));
+    res.send(JSON.stringify(names));
 });
     
 app.get('/:articleName',function(req,res){
