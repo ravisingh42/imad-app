@@ -103,6 +103,16 @@ app.get('/counter',function (req, res){
     counter = counter + 1;
     res.send(counter.toString());
 });
+
+var names=[];
+app.get('/submit-name', function(req, res) { // /Submit-name name?name-xxxx
+    //Get the name from request
+    var name= req.query.name;
+    
+    name.push(name);
+    //JSON Java script object notation
+    res.send(JSON.stringify(name));
+});
     
 app.get('/:articleName',function(req,res){
     //articleNae == article-one
