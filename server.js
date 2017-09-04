@@ -111,16 +111,31 @@ app.post('/login', function(req,res) {
                 var salt = dbString.split('$')[2];
                 var hashedPassword = hash(password, salt); // Creating the hashed based on the password submitted and the original salt
                 if (hashedPassword === dbString) {
+                    
+                    //Set the session
+                    req.session.auth= {userId: result.rows[0].id};
+                    // Set the cookie with the session id
+                    // internally, on the server id it maps the session id to an object
+                    // {auth {userId }}
+                    
                 res.send('credentials correct');
                } else {
                    
                     res.send(403).send('username/password is invalid');
                 }
                 
-               }
-           }
+              }
+          }
    });
     
+});
+
+app.get('/cheak-login', function(req,res) {
+    if(req.session && req.session.auth && req.session.auth.userId) {
+        res.send('you are logged in: ' + req.session.auth.userId.toString());
+    } else {
+        res.send('you are not logged in');
+    }
 });
 
 var pool = new Pool(config);
